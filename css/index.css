@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Nova+Square&display=swap");
+
+body{
+  font-family: "Nova Square", sans-serif;
+}
+
+.pelis {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pelicula {
+  width: 18rem;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out, background-color 0.3s;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.pelicula:hover {
+  transform: translateX(-2px) translateY(-1px) scale(1.05);
+  animation: vibration 0.1s linear 2 alternate;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes vibration {
+  0%, 100% {
+    transform: translateX(-1px) translateY(-1px);
+  }
+  50% {
+    transform: translateX(1px) translateY(1px);
+  }
+}
+
+/* Estilos para las imágenes dentro de las tarjetas */
+.pelicula img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilos para el título de la película */
+.tituloPelicula {
+  font-family: "Roboto", sans-serif; /* Por si estuviese caido el servidor de google, elijo fuente nativa */
+  text-align: center; /* Centra el título horizontalmente */
+  font-family: "Nova Square", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.botones-container {
+  margin-top: 20px;
+}
