@@ -1,0 +1,23 @@
+title: "Películas" # Título de tu sitio
+description: "Página creada como ejercicio. Espero sea de utilidad" # Descripción de tu sitio
+baseurl: "" # La base URL para tu sitio, útil si tu sitio está en una subcarpeta
+url: "https://hhvc.github.io" # La URL de tu sitio
+
+# Excluye estos directorios y archivos del proceso de construcción
+exclude:
+  - "node_modules"
+  - "ignorar"
+
+# Configura tu tema (puedes usar un tema predeterminado de Jekyll si lo deseas)
+theme: jekyll-theme-primer
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+
+# Markdown y opciones de Jekyll
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    default_lang: "plaintext"
