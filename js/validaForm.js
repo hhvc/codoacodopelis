@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Muestra un mensaje en la consola indicando que el formulario no es válido
             console.log('El formulario no es válido. Por favor, corrige los errores.');
             // Evita que el formulario se envíe
-            event.preventDefault(); // Evita que el formulario se envíe si hay errores de validación
+            event.preventDefault();
         } else {
             // Si la validación del formulario es exitosa, muestra un mensaje en la consola
             console.log('El formulario es válido. Enviar datos...');
@@ -22,59 +22,75 @@ document.addEventListener('DOMContentLoaded', () => {
     const validateForm = () => {
         let isValid = true;
 
-        // Validar campo de email
-        isValid = validateEmailField('email', 'El correo electrónico no es válido') && isValid;
+        // Validar campos de email
+        isValid = validateEmailField('email1', 'email2', 'El correo electrónico no es válido o no coincide') && isValid;
 
-        // Validar campo de contraseña
-        isValid = validateField('password', 'La contraseña es obligatoria') && isValid;
+        // Validar campos de contraseña
+        isValid = validatePasswordField('password1', 'password2', 'Las contraseñas no coinciden', 'La contraseña debe tener al menos 8 caracteres y contener letras y números') && isValid;
 
         return isValid;
     };
 
-    // Función para validar un campo específico
-    const validateField = (fieldId, errorMessage) => {
-        // Obtiene el elemento del campo mediante su ID
-        const field = document.getElementById(fieldId);
-        // Obtiene el valor del campo y elimina los espacios en blanco al principio y al final
-        const value = field.value.trim();
-        // Si el valor del campo está vacío
-        if (value === '') {
-            // Establece un mensaje de error para el campo
-            setErrorFor(field, errorMessage);
+    // Función para validar los campos de email
+    const validateEmailField = (fieldId1, fieldId2, errorMessage) => {
+        // Obtiene los elementos de los campos de correo electrónico mediante sus IDs
+        const field1 = document.getElementById(fieldId1);
+        const field2 = document.getElementById(fieldId2);
+        // Obtiene los valores de los campos y elimina los espacios en blanco al principio y al final
+        const email1 = field1.value.trim();
+        const email2 = field2.value.trim();
+        // Verifica si ambos correos son válidos y si son iguales
+        if (email1 === '' || email2 === '' || !isEmail(email1) || email1 !== email2) {
+            // Establece un mensaje de error para los campos de correo electrónico
+            setErrorFor(field1, errorMessage);
+            setErrorFor(field2, errorMessage);
             // Devuelve false indicando que la validación ha fallado
             return false;
         } else {
-            // Si el valor del campo no está vacío, elimina cualquier mensaje de error anterior
-            setSuccessFor(field);
+            // Si los campos de correo electrónico son válidos y coinciden, elimina cualquier mensaje de error anterior
+            setSuccessFor(field1);
+            setSuccessFor(field2);
             // Devuelve true indicando que la validación ha tenido éxito
             return true;
         }
     };
 
-    // Función para validar el campo de correo electrónico
-    const validateEmailField = (fieldId, errorMessage) => {
-        // Obtiene el elemento del campo de correo electrónico mediante su ID
-        const field = document.getElementById(fieldId);
-        // Obtiene el valor del campo y elimina los espacios en blanco al principio y al final
-        const email = field.value.trim();
-        // Si el campo de correo electrónico está vacío
-        if (email === '') {
-            // Establece un mensaje de error para el campo de correo electrónico
-            setErrorFor(field, 'El correo electrónico es obligatorio');
+    // Función para validar los campos de contraseña
+    const validatePasswordField = (fieldId1, fieldId2, mismatchMessage, strengthMessage) => {
+        // Obtiene los elementos de los campos mediante sus IDs
+        const field1 = document.getElementById(fieldId1);
+        const field2 = document.getElementById(fieldId2);
+        // Obtiene los valores de los campos y elimina los espacios en blanco al principio y al final
+        const value1 = field1.value.trim();
+        const value2 = field2.value.trim();
+        // Verifica si ambos valores son iguales y no están vacíos
+        if (value1 === '' || value2 === '' || value1 !== value2) {
+            // Establece un mensaje de error para los campos
+            setErrorFor(field1, mismatchMessage);
+            setErrorFor(field2, mismatchMessage);
             // Devuelve false indicando que la validación ha fallado
             return false;
-        // Si el campo de correo electrónico no está vacío pero no es válido
-        } else if (!isEmail(email)) {
-            // Establece un mensaje de error para el campo de correo electrónico
-            setErrorFor(field, errorMessage);
+        } else if (!validatePasswordStrength(value1)) {
+            // Establece un mensaje de error para los campos si la contraseña no cumple con los requisitos de fortaleza
+            setErrorFor(field1, strengthMessage);
+            setErrorFor(field2, strengthMessage);
             // Devuelve false indicando que la validación ha fallado
             return false;
         } else {
-            // Si el campo de correo electrónico es válido, elimina cualquier mensaje de error anterior
-            setSuccessFor(field);
+            // Si los valores de los campos coinciden y no están vacíos, elimina cualquier mensaje de error anterior
+            setSuccessFor(field1);
+            setSuccessFor(field2);
             // Devuelve true indicando que la validación ha tenido éxito
             return true;
         }
+    };
+
+    // Función para validar si una contraseña tiene al menos 8 caracteres y contiene letras y números
+    const validatePasswordStrength = (password) => {
+        // Expresión regular para verificar la fortaleza de la contraseña
+        const re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        // Verifica si la contraseña cumple con el patrón
+        return re.test(password);
     };
 
     // Función para establecer un mensaje de error en un campo
@@ -87,6 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
         formControl.classList.add('error');
         // Establece el texto del mensaje de error
         errorText.innerText = message;
+        // Añade la clase para el tooltip de error
+        errorText.classList.add('error-tooltip');
         // Establece el foco en el campo de entrada para una corrección rápida
         input.focus();
     };
@@ -101,6 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const errorText = formControl.querySelector('.error-text');
         // Establece el texto de error como vacío
         errorText.innerText = '';
+        // Elimina la clase del tooltip de error
+        errorText.classList.remove('error-tooltip');
     };
 
     // Función para validar si una cadena es una dirección de correo electrónico válida
@@ -110,8 +130,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Verifica si el correo electrónico cumple con el formato
         return re.test(email);
     };
-     // Agrega eventos para borrar las clases de error cuando se completa el input o se presiona Tab
-     form.querySelectorAll('input').forEach(input => {
+
+    // Agrega eventos para borrar las clases de error cuando se completa el input o se presiona Tab
+    form.querySelectorAll('input').forEach(input => {
         input.addEventListener('input', () => {
             // Obtiene el valor del campo y elimina los espacios en blanco al principio y al final
             const value = input.value.trim();
@@ -121,8 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-     // Agrega eventos para borrar las clases de error cuando se selecciona una opción del select
-     form.querySelectorAll('select').forEach(select => {
+
+    // Agrega eventos para borrar las clases de error cuando se selecciona una opción del select
+    form.querySelectorAll('select').forEach(select => {
         select.addEventListener('change', () => {
             // Obtiene el valor seleccionado del campo de selección
             const value = select.value;
@@ -132,6 +154,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-   
 });

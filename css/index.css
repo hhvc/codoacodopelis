@@ -1,7 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Nova+Square&display=swap");
 
-body{
+body {
   font-family: "Nova Square", sans-serif;
+}
+
+.no-underline {
+  text-decoration: none;
+  color: inherit;
 }
 
 .pelis {
@@ -25,7 +30,8 @@ body{
 }
 
 @keyframes vibration {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(-1px) translateY(-1px);
   }
   50% {
@@ -50,4 +56,27 @@ body{
 
 .botones-container {
   margin-top: 20px;
+}
+
+.error-text {
+  color: #dc3545;
+  font-size: 0.875em;
+  margin-top: 0.25rem;
+}
+
+.error input {
+  border-color: #dc3545;
+}
+
+.error-tooltip {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #856404;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  position: relative;
 }

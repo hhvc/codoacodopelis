@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="../ignorar/bootstrap-5.3.3/bootstrap-5.3.3/dist/css/bootstrap.css"
+      href="ignorar/bootstrap-5.3.3/bootstrap-5.3.3/dist/css/bootstrap.css"
     />
     <link
       rel="stylesheet"
-      href="../ignorar/bootstrap-5.3.3/bootstrap-5.3.3/dist/css/bootstrap-grid.css"
+      href="ignorar/bootstrap-5.3.3/bootstrap-5.3.3/dist/css/bootstrap-grid.css"
     />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="css/index.css" />
     <title>Películas</title>
   </head>
 
@@ -39,22 +38,19 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="#" class="nav-link px-2 link-secondary">Inicio</a></li>
-        <li>
-          <a href="./peliculas.html" class="nav-link px-2">Películas</a>
-        </li>
-        <li><a href="./series.html" class="nav-link px-2">Series</a></li>
-        <li><a href="./juegos.html" class="nav-link px-2">Juegos</a></li>
-        <li>
-          <a href="./colabora.html" class="nav-link px-2">Colabora</a>
-        </li>
+        <li><a href="pages/prueba.html" class="nav-link px-2">Películas</a></li>
+        <li><a href="pages/netflix.html" class="nav-link px-2">Series</a></li>
+        <li><a href="#" class="nav-link px-2">Juegos</a></li>
+        <li><a href="#" class="nav-link px-2">Colabora</a></li>
       </ul>
 
       <div class="col-md-3 text-end">
         <button type="button" class="btn btn-outline-primary me-2">
-          <a href="./inicioSesion.html" class="no-underline"> Login</a>
+          <a href="./pages/registro.html" />
+          Login
         </button>
-        <button type="button" class="btn btn-outline-primary me-2">
-          <a href="./registro.html " class="no-underline">Registrarse</a>
+        <button type="button" class="btn btn-primary">
+          <a href="./pages/registro.html" />Registrarse
         </button>
       </div>
     </header>
@@ -158,59 +154,98 @@
     </div>
 
     <main class="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
-      <form data-aos="fade-up" data-aos-duration="1000">
-        <div class="mb-3">
-          <h2 class="tituloRegistrarse">Registrarse</h2>
-          <label for="email1" class="form-label">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email1"
-            aria-describedby="emailHelp"
-            required
-          />
-          <div class="error-text"></div>
-          <label for="email2" class="form-label">Repite tu email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email2"
-            aria-describedby="emailHelp"
-            required
-          />
-          <div class="error-text"></div>
-          <div id="emailHelp" class="form-text">
-            Nunca compartiremos su correo electrónico con nadie
-          </div>
-        </div>
-        <div class="mb-3">
-          <label for="password1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password1" required />
-          <div class="error-text"></div>
-          <label for="password2" class="form-label">Repite el password</label>
-          <input type="password" class="form-control" id="password2" required />
-          <div class="error-text"></div>
-        </div>
-        <button type="submit" class="btn btn-primary">Registrarme</button>
-        <div>
-          <a id="ayuda" class="ayuda" href="./inicioSesion.html"
-            >Si ya estás registrado, inicia sesión!</a
-          >
-        </div>
-      </form>
-
       <section
-        data-aos="zoom-in"
+        data-aos="fade-up"
+        data-aos-offset="300"
+        data-aos-delay="50"
         data-aos-duration="1000"
-        class="seccionRegistrarse"
-      ></section>
+        class="buscadorPrincipal aos-init aos-animate"
+      >
+        <h2 class="tituloSection">Nombre a buscar:</h2>
+        <form class="buscadorPeliculas">
+          <input
+            class="inputBuscador"
+            type="text"
+            placeholder="Película, serie o actor..."
+            id="buscar"
+            name="buscar"
+          />
+          <input class="botonBuscador" type="submit" value="Buscar" />
+        </form>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+            checked
+          />
+          <label class="form-check-label" for="flexCheckDefault">
+            Buscar en películas
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckChecked"
+            checked
+          />
+          <label class="form-check-label" for="flexCheckChecked">
+            Buscar en series
+          </label>
+        </div>
+      </section>
+
+      <!-- CONTENEDOR PRINCIPAL DE TARJETAS DE PELÍCULAS -->
+      <div>
+        <div
+          class="pelisTendencia d-flex flex-wrap justify-content-center"
+          id="tendencias"
+          data-aos="fade-up"
+          data-aos-offset="400"
+          data-aos-delay="100"
+          data-aos-duration="1000"
+        >
+          <!-- DIV "pelis" donde se crearán las tarjetas de películas -->
+          <div class="pelis"></div>
+        </div>
+
+        <div class="botones-container d-flex justify-content-center">
+          <button
+            type="button"
+            class="boton anterior btn btn-outline-primary me-4"
+          >
+            Anterior
+          </button>
+          <button type="button" class="boton siguiente btn btn-outline-primary">
+            Siguiente
+          </button>
+        </div>
+      </div>
+
+      <!-- CONTENEDOR PELÍCULAS ACLAMADAS -->
+      <!-- <div> -->
+      <!-- <div
+          class="pelisTendencia d-flex flex-wrap justify-content-center"
+          id="aclamadas"
+          data-aos="fade-up"
+          data-aos-offset="400"
+          data-aos-delay="100"
+          data-aos-duration="1000"
+        > -->
+      <!-- Contenedor adicional para las tarjetas de películas -->
+      <!-- <div class="aclamadas"></div>
+        </div>
+        <button class="boton anterior">Anterior</button>
+        <button class="boton siguiente">Siguiente</button>
+      </div> -->
     </main>
 
     <div class="container">
       <footer
-        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top aos-init aos-animate"
-        data-aos="fade-up"
-        data-aos-duration="1000"
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
       >
         <p class="col-md-4 mb-0 text-body-secondary">
           © 2024 Codo a Codo - Ejercicio Alumno Héctor Vázquez, Inc
@@ -227,53 +262,29 @@
 
         <ul class="nav col-md-4 justify-content-end">
           <li class="nav-item">
-            <a href="../index.html" class="nav-link px-2 text-body-secondary">Inicio</a>
+            <a href="#" class="nav-link px-2 text-body-secondary">Inicio</a>
           </li>
           <li class="nav-item">
-            <a
-              href="./peliculas.html"
-              class="nav-link px-2 text-body-secondary"
-              >Películas</a
-            >
+            <a href="#" class="nav-link px-2 text-body-secondary">Películas</a>
           </li>
           <li class="nav-item">
-            <a
-              href="./series.html"
-              class="nav-link px-2 text-body-secondary"
-              >Series</a
-            >
+            <a href="#" class="nav-link px-2 text-body-secondary">Series</a>
           </li>
           <li class="nav-item">
-            <a
-              href="./juegos.html"
-              class="nav-link px-2 text-body-secondary"
-              >Juegos</a
-            >
+            <a href="#" class="nav-link px-2 text-body-secondary">Juegos</a>
           </li>
           <li class="nav-item">
-            <a
-              href="./colabora.html"
-              class="nav-link px-2 text-body-secondary"
-              >Colabora</a
-            >
+            <a href="#" class="nav-link px-2 text-body-secondary">Colabora</a>
           </li>
         </ul>
       </footer>
     </div>
-
     <script
       src="ignorar/bootstrap-5.3.3/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="../ignorar\bootstrap-5.3.3\bootstrap-5.3.3\site\static\docs\5.3\assets\js\color-modes.js"></script>
     <script src="/js/fetch_peliculas.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", (event) => {
-        AOS.init();
-      });
-    </script>
-    <script src="../js/validaForm.js"></script>
+    <script src="ignorar\bootstrap-5.3.3\bootstrap-5.3.3\site\static\docs\5.3\assets\js\color-modes.js"></script>
   </body>
 </html>
