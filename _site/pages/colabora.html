@@ -5,20 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="{{ site.baseurl }}/ignorar/bootstrap-5.3.3/bootstrap-5.3.3/dist/css/bootstrap.css"
+      href="../ignorar/bootstrap-5.3.3/bootstrap-5.3.3/dist/css/bootstrap.css"
     />
     <link
       rel="stylesheet"
-      href="{{ site.baseurl }}/ignorar/bootstrap-5.3.3/bootstrap-5.3.3/dist/css/bootstrap-grid.css"
+      href="../ignorar/bootstrap-5.3.3/bootstrap-5.3.3/dist/css/bootstrap-grid.css"
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/index.css" />
-    <link
-      rel="icon"
-      href="{{ site.baseurl }}/assets/favicon.ico"
-      type="image/x-icon"
-    />
-    <title>Películas - Inicio de Sesión</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+    <title>Películas</title>
   </head>
 
   <body>
@@ -43,7 +39,11 @@
       </div>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Inicio</a></li>
+        <li>
+          <a href="../index.html" class="nav-link px-2 link-secondary"
+            >Inicio</a
+          >
+        </li>
         <li>
           <a href="./peliculas.html" class="nav-link px-2">Películas</a>
         </li>
@@ -163,40 +163,9 @@
     </div>
 
     <main class="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
-      <form data-aos="fade-up" data-aos-duration="1000">
-        <div class="mb-3">
-          <h2 class="tituloRegistrarse">Inicio de Sesión</h2>
-          <label for="exampleInputEmail1" class="form-label">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-          <div class="error-text"></div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-          />
-          <div class="error-text"></div>
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label class="form-check-label" for="exampleCheck1"
-            >Recordar password</label
-          >
-        </div>
-        <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
-        <div>
-          <a id="ayuda" class="ayuda" href="registro.html"
-            >Si todavía no tienes cuenta, regístrate primero</a
-          >
-        </div>
-      </form>
+      <section class="proximamente">
+        <h3>Colabora</h3>
+      </section>
 
       <section
         data-aos="zoom-in"

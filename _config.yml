@@ -1,6 +1,6 @@
 title: "Películas" # Título de tu sitio
 description: "Página creada como ejercicio. Espero sea de utilidad" # Descripción de tu sitio
-baseurl: "" # La base URL para tu sitio, útil si tu sitio está en una subcarpeta
+baseurl: "/codoacodopelis" # La base URL para tu sitio, útil si tu sitio está en una subcarpeta
 url: "https://hhvc.github.io" # La URL de tu sitio
 
 # Excluye estos directorios y archivos del proceso de construcción
