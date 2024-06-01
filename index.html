@@ -27,7 +27,7 @@
     >
       <div class="col-md-3 mb-2 mb-md-0">
         <a
-          href="/"
+          href="{{ site.baseurl }}/"
           class="d-inline-flex link-body-emphasis text-decoration-none"
         >
           <svg
@@ -43,23 +43,48 @@
       </div>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Inicio</a></li>
         <li>
-          <a href="pages/peliculas.html" class="nav-link px-2">Películas</a>
+          <a href="{{ site.baseurl }}/" class="nav-link px-2 link-secondary"
+            >Inicio</a
+          >
         </li>
-        <li><a href="pages/series.html" class="nav-link px-2">Series</a></li>
-        <li><a href="pages/juegos.html" class="nav-link px-2">Juegos</a></li>
         <li>
-          <a href="pages/colabora.html" class="nav-link px-2">Colabora</a>
+          <a
+            href="{{ site.baseurl }}/pages/peliculas.html"
+            class="nav-link px-2"
+            >Películas</a
+          >
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/pages/series.html" class="nav-link px-2"
+            >Series</a
+          >
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/pages/juegos.html" class="nav-link px-2"
+            >Juegos</a
+          >
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/pages/colabora.html" class="nav-link px-2"
+            >Colabora</a
+          >
         </li>
       </ul>
 
       <div class="col-md-3 text-end">
         <button type="button" class="btn btn-outline-primary me-2">
-          <a href="./pages/inicioSesion.html" class="no-underline"> Login</a>
+          <a
+            href="{{ site.baseurl }}/pages/inicioSesion.html"
+            class="no-underline"
+          >
+            Login</a
+          >
         </button>
         <button type="button" class="btn btn-outline-primary me-2">
-          <a href="./pages/registro.html " class="no-underline">Registrarse</a>
+          <a href="{{ site.baseurl }}/pages/registro.html" class="no-underline"
+            >Registrarse</a
+          >
         </button>
       </div>
     </header>
@@ -85,81 +110,10 @@
       </symbol>
       <symbol id="sun-fill" viewBox="0 0 16 16">
         <path
-          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.222 2.808a.5.5 0 0 1 0 .707L2.808 4.93a.5.5 0 1 1-.707-.707L3.515 2.808a.5.5 0 0 1 .707 0z"
         ></path>
       </symbol>
     </svg>
-
-    <div
-      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
-    >
-      <button
-        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-        id="bd-theme"
-        type="button"
-        aria-expanded="false"
-        data-bs-toggle="dropdown"
-        aria-label="Toggle theme (dark)"
-      >
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
-          <use href="#moon-stars-fill"></use>
-        </svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul
-        class="dropdown-menu dropdown-menu-end shadow"
-        aria-labelledby="bd-theme-text"
-      >
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center"
-            data-bs-theme-value="light"
-            aria-pressed="false"
-          >
-            <svg class="bi me-2 opacity-50" width="1em" height="1em">
-              <use href="#sun-fill"></use>
-            </svg>
-            Modo claro
-            <svg class="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center active"
-            data-bs-theme-value="dark"
-            aria-pressed="true"
-          >
-            <svg class="bi me-2 opacity-50" width="1em" height="1em">
-              <use href="#moon-stars-fill"></use>
-            </svg>
-            Modo oscuro
-            <svg class="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center"
-            data-bs-theme-value="auto"
-            aria-pressed="false"
-          >
-            <svg class="bi me-2 opacity-50" width="1em" height="1em">
-              <use href="#circle-half"></use>
-            </svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-      </ul>
-    </div>
 
     <main class="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
       <section
@@ -206,49 +160,28 @@
         </div>
       </section>
 
-      <!-- CONTENEDOR PRINCIPAL DE TARJETAS DE PELÍCULAS -->
-      <div>
-        <div
-          class="pelisTendencia d-flex flex-wrap justify-content-center"
-          id="tendencias"
-          data-aos="fade-up"
-          data-aos-offset="400"
-          data-aos-delay="100"
-          data-aos-duration="1000"
-        >
-          <!-- DIV "pelis" donde se crearán las tarjetas de películas -->
-          <div class="pelis"></div>
-        </div>
-
-        <div class="botones-container d-flex justify-content-center">
-          <button
-            type="button"
-            class="boton anterior btn btn-outline-primary me-4"
-          >
-            Anterior
-          </button>
-          <button type="button" class="boton siguiente btn btn-outline-primary">
-            Siguiente
-          </button>
-        </div>
+      <div
+        class="pelisTendencia d-flex flex-wrap justify-content-center"
+        id="tendencias"
+        data-aos="fade-up"
+        data-aos-offset="400"
+        data-aos-delay="100"
+        data-aos-duration="1000"
+      >
+        <div class="pelis"></div>
       </div>
 
-      <!-- CONTENEDOR PELÍCULAS ACLAMADAS -->
-      <!-- <div> -->
-      <!-- <div
-          class="pelisTendencia d-flex flex-wrap justify-content-center"
-          id="aclamadas"
-          data-aos="fade-up"
-          data-aos-offset="400"
-          data-aos-delay="100"
-          data-aos-duration="1000"
-        > -->
-      <!-- Contenedor adicional para las tarjetas de películas -->
-      <!-- <div class="aclamadas"></div>
-        </div>
-        <button class="boton anterior">Anterior</button>
-        <button class="boton siguiente">Siguiente</button>
-      </div> -->
+      <div class="botones-container d-flex justify-content-center">
+        <button
+          type="button"
+          class="boton anterior btn btn-outline-primary me-4"
+        >
+          Anterior
+        </button>
+        <button type="button" class="boton siguiente btn btn-outline-primary">
+          Siguiente
+        </button>
+      </div>
     </main>
 
     <div class="container">
@@ -262,7 +195,7 @@
         </p>
 
         <a
-          href="/"
+          href="{{ site.baseurl }}/"
           class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
         >
           <svg class="bi me-2" width="40" height="32">
@@ -272,32 +205,36 @@
 
         <ul class="nav col-md-4 justify-content-end">
           <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-body-secondary">Inicio</a>
+            <a
+              href="{{ site.baseurl }}/"
+              class="nav-link px-2 text-body-secondary"
+              >Inicio</a
+            >
           </li>
           <li class="nav-item">
             <a
-              href="pages/peliculas.html"
+              href="{{ site.baseurl }}/pages/peliculas.html"
               class="nav-link px-2 text-body-secondary"
               >Películas</a
             >
           </li>
           <li class="nav-item">
             <a
-              href="pages/series.html"
+              href="{{ site.baseurl }}/pages/series.html"
               class="nav-link px-2 text-body-secondary"
               >Series</a
             >
           </li>
           <li class="nav-item">
             <a
-              href="pages/juegos.html"
+              href="{{ site.baseurl }}/pages/juegos.html"
               class="nav-link px-2 text-body-secondary"
               >Juegos</a
             >
           </li>
           <li class="nav-item">
             <a
-              href="pages/colabora.html"
+              href="{{ site.baseurl }}/pages/colabora.html"
               class="nav-link px-2 text-body-secondary"
               >Colabora</a
             >
@@ -307,12 +244,12 @@
     </div>
 
     <script
-      src="./ignorar/bootstrap-5.3.3/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"
+      src="{{ site.baseurl }}/ignorar/bootstrap-5.3.3/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="./ignorar/bootstrap-5.3.3/bootstrap-5.3.3/site/static/docs/5.3/assets/js/color-modes.js"></script>
-    <script src="/js/fetch_peliculas.js"></script>
+    <script src="{{ site.baseurl }}/ignorar/bootstrap-5.3.3/bootstrap-5.3.3/site/static/docs/5.3/assets/js/color-modes.js"></script>
+    <script src="{{ site.baseurl }}/js/fetch_peliculas.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", (event) => {
