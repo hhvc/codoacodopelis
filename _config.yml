@@ -8,11 +8,11 @@ exclude:
   - "node_modules"
 
 # Configura tu tema (puedes usar un tema predeterminado de Jekyll si lo deseas)
-theme: jekyll-theme-primer
+# theme: jekyll-theme-primer
 
 # Plugins
-plugins:
-  - jekyll-seo-tag
+# plugins:
+#   - jekyll-seo-tag
 
 # Markdown y opciones de Jekyll
 markdown: kramdown
