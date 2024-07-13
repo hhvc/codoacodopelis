@@ -1,14 +1,17 @@
 {
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "chokidar": "^3.6.0"
   },
   "name": "pagpeliculasbootstrap",
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
+    "live-server": "^1.2.0",
     "node-sass": "^9.0.0"
   },
   "scripts": {
+    "start": "live-server ./frontend",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
