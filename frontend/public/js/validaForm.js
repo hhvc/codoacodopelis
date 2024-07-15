@@ -1,22 +1,38 @@
 // Espera a que el DOM se cargue completamente
 document.addEventListener("DOMContentLoaded", () => {
-  // Selecciona el formulario en el DOM
   const form = document.querySelector("form");
 
-  // Agrega un evento de escucha para cuando se envía el formulario
   form.addEventListener("submit", (event) => {
-    // Si la validación del formulario no es exitosa
-    if (!validateForm()) {
-      // Muestra un mensaje en la consola indicando que el formulario no es válido
-      console.log(
-        "El formulario no es válido. Por favor, corrige los errores."
-      );
-      // Evita que el formulario se envíe
-      event.preventDefault();
+    event.preventDefault(); // Evitar que el formulario se envíe de la manera tradicional
+
+    if (validateForm()) {
+      const formData = new FormData(form);
+      const data = {
+        email: formData.get("email"),
+        password: formData.get("password")
+      };
+
+      console.log("Datos del formulario:", data);
+
+      fetch("../../../backend/public/api/pelis.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        console.log("Respuesta del servidor:", response);
+        return response.json();
+      })
+      .then(data => {
+        console.log("Datos del servidor:", data);
+      })
+      .catch((error) => {
+        console.error("Error en la solicitud:", error);
+      });
     } else {
-      // Si la validación del formulario es exitosa, muestra un mensaje en la consola
-      console.log("El formulario es válido. Enviar datos...");
-      // Aquí puedes enviar los datos del formulario o realizar otras acciones
+      console.log("El formulario no es válido. Por favor, corrige los errores.");
     }
   });
 

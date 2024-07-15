@@ -1,0 +1,19 @@
+{
+    "name": "codoacodo/pelisphp",
+    "description": "Ejercicio php. Página para ver películas.",
+    "autoload": {
+        "psr-4": {
+            "Codoacodo\\Pelisphp\\": "backend/src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hhvc",
+            "email": "hectorvazquez.laboral@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

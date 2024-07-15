@@ -167,7 +167,12 @@
     </div>
 
     <main class="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
-      <form data-aos="fade-up" data-aos-duration="1000">
+      <form
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        action="/backend/public/api/pelis.php"
+        method="POST"
+      >
         <div class="mb-3">
           <h2 class="tituloRegistrarse">Registrarse</h2>
           <label for="email1" class="form-label">Email</label>
@@ -175,6 +180,7 @@
             type="email"
             class="form-control"
             id="email1"
+            name="email"
             aria-describedby="emailHelp"
             required
           />
@@ -194,7 +200,13 @@
         </div>
         <div class="mb-3">
           <label for="password1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password1" required />
+          <input
+            type="password"
+            class="form-control"
+            id="password1"
+            name="password"
+            required
+          />
           <div class="error-text"></div>
           <label for="password2" class="form-label">Repite el password</label>
           <input type="password" class="form-control" id="password2" required />
@@ -264,11 +276,9 @@
       </footer>
     </div>
 
-    <script
-      src="../../public/js/bootstrap-5.3.3/bootstrap.bundle.min.js"
-    ></script>
+    <script src="../../public/js/bootstrap-5.3.3/bootstrap.bundle.min.js"></script>
     <script src="../../public/js/bootstrap-5.3.3/color-modes.js"></script>
-    <script src="../../public/js/fetch_peliculas.js"></script>
+    <!-- <script src="../../public/js/fetch_peliculas.js"></script> -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", (event) => {

@@ -30,7 +30,7 @@ const fetchMoviesGrid = async (page = 1) => {
 
     movies.forEach(movie => {
         const pelicula = createElement('div', 'pelicula');
-        const anchor = createElement('a', '', { href: '../../src/pages/detallePeli.html' });
+        const anchor = createElement('a', '', { href: './src/pages/detallePeli.html' });
         const img = createElement('img', 'imgTendencia', {
             src: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
             alt: movie.title,
