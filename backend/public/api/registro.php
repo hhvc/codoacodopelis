@@ -29,6 +29,7 @@ header('Content-Type: application/json'); // Configuración del encabezado Conte
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
     $password = trim($_POST['password']);
+    $rol = 'user'; // O puedes establecerlo desde un formulario si necesitas roles diferentes
 
     // Validar si el email es válido
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -42,31 +43,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Validar si el email ya está registrado
     try {
         $stmt = $pdo->prepare('SELECT * FROM usuarios WHERE email = :email');
         $stmt->execute(['email' => $email]);
-        $user = $stmt->fetch();
+        $existingUser = $stmt->fetch();
     } catch (PDOException $e) {
         echo json_encode(['success' => false, 'message' => 'Error al ejecutar la consulta: ' . $e->getMessage()]);
         exit;
     }
 
-    if ($user && password_verify($password, $user['password'])) {
-        session_start();
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['user_email'] = $user['email'];
-        $_SESSION['user_rol'] = $user['rol'];
+    if ($existingUser) {
+        echo json_encode(['success' => false, 'message' => 'El correo electrónico ya está registrado.']);
+        exit;
+    }
 
-        if ($user['rol'] === 'admin') {
-            echo json_encode(['success' => true, 'redirect' => '../../../frontend/src/pages/admin/dashboard.php', 'message' => 'Logueado como Administrador']);
-        } else {
-            echo json_encode(['success' => true, 'redirect' => '../../../frontend/src/pages/user/home.php', 'message' => 'Logueo exitoso']);
-        }
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Correo o contraseña incorrectos.']);
+    // Hash de la contraseña
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    // Inserción del nuevo usuario en la base de datos
+    try {
+        $stmt = $pdo->prepare('INSERT INTO usuarios (email, password, rol) VALUES (:email, :password, :rol)');
+        $stmt->execute(['email' => $email, 'password' => $hashedPassword, 'rol' => $rol]);
+
+        echo json_encode(['success' => true, 'message' => 'Registro exitoso.']);
+    } catch (PDOException $e) {
+        echo json_encode(['success' => false, 'message' => 'Error al registrar el usuario: ' . $e->getMessage()]);
     }
 } else {
     echo json_encode(['success' => false, 'message' => 'Método de solicitud no permitido.']);
 }
 ?>
-
